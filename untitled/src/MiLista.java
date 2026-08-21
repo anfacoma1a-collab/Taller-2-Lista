@@ -48,6 +48,19 @@ public class MiLista implements ListInterface{
 
     @Override
     public Object search(Object object) {
+        if (this.cabeza.dato == object){
+            return object;
+        }
+        ListNode iterador = this.cabeza;
+        int contador = 1;
+        while (iterador.siguiente != null){
+            iterador = iterador.siguiente;
+            contador = contador + 1;
+            if (this.cabeza.dato == object){
+                return object;
+            }
+        }
+
         return null;
     }
 
