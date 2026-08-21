@@ -3,6 +3,7 @@ import java.util.Iterator;
 public class MiLista implements ListInterface{
     ListNode cabeza;
 
+
     @Override
     public boolean isEmpty() {
         return false;
@@ -27,17 +28,22 @@ public class MiLista implements ListInterface{
 
     @Override
     public Object getHead() {
-        return null;
+       return  this.cabeza.dato;
     }
 
     @Override
     public Object getTail() {
-        return null;
+        ListNode iterador = this.cabeza;
+        while(iterador.siguiente != null){
+            iterador= iterador.siguiente;
+        }
+        ListNode cola = iterador;
+        return cola.dato;
     }
 
     @Override
     public Object get(ListNode node) {
-        return null;
+        return node.dato;
     }
 
     @Override
