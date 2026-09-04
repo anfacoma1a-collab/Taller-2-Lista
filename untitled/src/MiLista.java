@@ -92,9 +92,21 @@ public class MiLista implements ListInterface {
     @Override
     public boolean insert(Object ob, Object object) {
         ListNode nuevoNodo = new ListNode(object);
+        ListNode iterador = this.cabeza;
+        while (iterador != null) {
 
-        
-        return true;
+            if (iterador.dato == ob) {
+                nuevoNodo.siguiente = iterador.siguiente;
+                iterador.siguiente = nuevoNodo;
+
+
+                return true;
+
+            }
+            iterador = iterador.siguiente;
+        }
+        return false;
+
     }
 
     @Override
