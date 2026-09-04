@@ -1,6 +1,6 @@
 import java.util.Iterator;
 
-public class MiLista implements ListInterface{
+public class MiLista implements ListInterface {
     ListNode cabeza;
 
 
@@ -13,7 +13,7 @@ public class MiLista implements ListInterface{
     public int getSize() {
         ListNode iterador = this.cabeza;
         int contador = 1;
-        while (iterador.siguiente != null){
+        while (iterador.siguiente != null) {
             iterador = iterador.siguiente;
             contador = contador + 1;
         }
@@ -28,14 +28,14 @@ public class MiLista implements ListInterface{
 
     @Override
     public Object getHead() {
-       return  this.cabeza.dato;
+        return this.cabeza.dato;
     }
 
     @Override
     public Object getTail() {
         ListNode iterador = this.cabeza;
-        while(iterador.siguiente != null){
-            iterador= iterador.siguiente;
+        while (iterador.siguiente != null) {
+            iterador = iterador.siguiente;
         }
         ListNode cola = iterador;
         return cola.dato;
@@ -48,15 +48,15 @@ public class MiLista implements ListInterface{
 
     @Override
     public Object search(Object object) {
-        if (this.cabeza.dato == object){
+        if (this.cabeza.dato == object) {
             return object;
         }
         ListNode iterador = this.cabeza;
         int contador = 1;
-        while (iterador.siguiente != null){
+        while (iterador.siguiente != null) {
             iterador = iterador.siguiente;
             contador = contador + 1;
-            if (this.cabeza.dato == object){
+            if (this.cabeza.dato == object) {
                 return object;
             }
         }
@@ -66,17 +66,35 @@ public class MiLista implements ListInterface{
 
     @Override
     public boolean add(Object object) {
-        return false;
+        ListNode iterador = this.cabeza;
+
+        while (iterador.siguiente != null) {
+            iterador = iterador.siguiente;
+        }
+        ListNode nuevaCola = new ListNode(object);
+
+        iterador.siguiente = nuevaCola;
+        nuevaCola.dato = object;
+
+        return true;
     }
 
     @Override
     public boolean insert(ListNode node, Object object) {
-        return false;
+
+        ListNode nuevoNodo = new ListNode(object);
+        nuevoNodo.siguiente = node.siguiente;
+        node.siguiente = nuevoNodo;
+
+        return true;
     }
 
     @Override
     public boolean insert(Object ob, Object object) {
-        return false;
+        ListNode nuevoNodo = new ListNode(object);
+
+        
+        return true;
     }
 
     @Override
@@ -89,7 +107,7 @@ public class MiLista implements ListInterface{
             //3er paso: redefinir la cabeza
             this.cabeza = nuevaCabeza;
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Ocurrió un error");
             return false;
         }
@@ -97,10 +115,10 @@ public class MiLista implements ListInterface{
 
     @Override
     public boolean insertTail(Object object) {
-        if(this.cabeza == null){
+        if (this.cabeza == null) {
             ListNode nuevaCabeza = new ListNode(object);
             this.cabeza = nuevaCabeza;
-        }else {
+        } else {
             ListNode nuevaCola = new ListNode(object);
             ListNode iterador = this.cabeza;
             while (iterador.siguiente != null) {
