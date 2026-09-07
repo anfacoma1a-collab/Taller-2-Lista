@@ -36,6 +36,11 @@ public class Main {
         System.out.println(miLista.toString());
 
         System.out.println(miLista.get(miLista.cabeza.siguiente.siguiente));
+
+        miLista.insert("aaaaaaaaaaa","nuevo O");
+
+        System.out.println(miLista.toString());
+
     }
 
 }

@@ -28,7 +28,7 @@ public class MiLista implements ListInterface {
 
     @Override
     public Object getHead() {
-        return this.cabeza.dato;
+                return this.cabeza.dato;
     }
 
     @Override
@@ -52,11 +52,10 @@ public class MiLista implements ListInterface {
             return object;
         }
         ListNode iterador = this.cabeza;
-        int contador = 1;
+
         while (iterador.siguiente != null) {
             iterador = iterador.siguiente;
-            contador = contador + 1;
-            if (this.cabeza.dato == object) {
+            if (iterador.dato == object) {
                 return object;
             }
         }
@@ -145,6 +144,7 @@ public class MiLista implements ListInterface {
 
     @Override
     public boolean set(ListNode node, Object object) {
+
         return false;
     }
 
