@@ -166,7 +166,15 @@ public class MiLista implements ListInterface {
 
     @Override
     public boolean contains(Object object) {
-        
+        ListNode iterator = this.cabeza;
+
+        while (iterator != null) {
+            if (iterator.data != null && iterator.data.equals(object)) {
+                return true;
+            }
+
+            iterator = iterator.siguiente;
+        }
         return false;
     }
 
