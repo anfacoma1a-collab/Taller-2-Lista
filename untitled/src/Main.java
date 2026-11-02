@@ -244,6 +244,25 @@ public class Main {
         System.out.println("Empty list:");
         System.out.println(listaVaciaFinal);
 
+        System.out.println("\n--- shuffle test ---");
+
+        MiLista pruebaShuffle = new MiLista();
+
+        pruebaShuffle.insertTail(new Carta(1, 'C'));
+        pruebaShuffle.insertTail(new Carta(2, 'C'));
+        pruebaShuffle.insertTail(new Carta(3, 'C'));
+        pruebaShuffle.insertTail(new Carta(4, 'C'));
+        pruebaShuffle.insertTail(new Carta(5, 'C'));
+
+        System.out.println("Before shuffling:");
+        System.out.println(pruebaShuffle);
+
+        pruebaShuffle.shuffle();
+
+        System.out.println("After shuffling:");
+        System.out.println(pruebaShuffle);
+
+
         }
 
     }

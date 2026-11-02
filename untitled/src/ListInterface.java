@@ -56,4 +56,6 @@ public interface ListInterface {
 
     public MiLista sortList();
 
+    void shuffle();
+
 }

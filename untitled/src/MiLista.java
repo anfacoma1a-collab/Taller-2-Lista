@@ -443,12 +443,50 @@ public class MiLista implements ListInterface{
 
             return Double.compare(numero1, numero2);
         }
+        if (primero instanceof Carta && segundo instanceof Carta) {
+            Carta carta1 = (Carta) primero;
+            Carta carta2 = (Carta) segundo;
 
+            return carta1.compareTo(carta2);
+        }
         return primero.toString().compareToIgnoreCase(
                 segundo.toString()
         );
     }
+    @Override
+    public void shuffle() {
+        int cantidad = 0;
+        ListNode actual = cabeza;
 
+        // Count the nodes
+        while (actual != null) {
+            cantidad++;
+            actual = actual.siguiente;
+        }
+
+        // Shuffle the data stored in the nodes
+        for (int i = cantidad - 1; i > 0; i--) {
+            int posicionAleatoria = (int) (Math.random() * (i + 1));
+
+            ListNode nodoActual = cabeza;
+            ListNode nodoAleatorio = cabeza;
+
+            for (int posicion = 0; posicion < i; posicion++) {
+                nodoActual = nodoActual.siguiente;
+            }
+
+            for (int posicion = 0;
+                 posicion < posicionAleatoria;
+                 posicion++) {
+
+                nodoAleatorio = nodoAleatorio.siguiente;
+            }
+
+            Object temporal = nodoActual.dato;
+            nodoActual.dato = nodoAleatorio.dato;
+            nodoAleatorio.dato = temporal;
+        }
+    }
     @Override
     public String toString() {
         return "MiLista{" +
