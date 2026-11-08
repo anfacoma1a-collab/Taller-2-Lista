@@ -443,12 +443,14 @@ public class MiLista implements ListInterface{
 
             return Double.compare(numero1, numero2);
         }
-        if (primero instanceof Carta && segundo instanceof Carta) {
-            Carta carta1 = (Carta) primero;
-            Carta carta2 = (Carta) segundo;
+        if (primero instanceof Comparable<?>
+                && primero.getClass().isInstance(segundo)) {
+            @SuppressWarnings("unchecked")
+            Comparable<Object> comparable = (Comparable<Object>) primero;
 
-            return carta1.compareTo(carta2);
+            return comparable.compareTo(segundo);
         }
+
         return primero.toString().compareToIgnoreCase(
                 segundo.toString()
         );
